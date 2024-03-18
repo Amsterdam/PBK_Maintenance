@@ -1,6 +1,6 @@
 # MODCMAC
 This repository contains the code for Multi-Objective Deep Centralized Multi-Agent Actor Critic (MODCMAC) algorithm. 
-The algorithm is implemented in PyTorch.
+The algorithm is implemented in PyTorch and builds upon the work of Jesse van Remmerden found [here](https://github.com/jesserem/MODCMAC).
 ## Installation
 The dependencies can be installed using the following command:
 ```
@@ -16,5 +16,4 @@ The function of each argument can be found by running:
 python run_MODCMAC.py --help
 ```
 ## Disclaimer
-The code is a work in progress and is not yet complete. We will add a full citation soon after the paper is published at
-the [MODeM workshop](https://modem2023.vub.ac.be/) at ECAI 2023.
+The code is a work in progress and is not yet complete.
