@@ -1,7 +1,5 @@
 /Hyperparameter/
-/models/
 /plots/
-/results/
 /runs/
 __pycache__
 /tests/.pytest_cache/
@@ -20,6 +18,7 @@ wandb_init.py
 training_results_modcmac
 training_results_modcmac_new
 tests
+data
 sbatch_files
 scenarios_json
 results
@@ -62,3 +61,6 @@ scenarios_json
 /model_tuning/
 /modcmac_code/agents/ppo/
 create_*.py
+/data/
+/models/
+/results/
