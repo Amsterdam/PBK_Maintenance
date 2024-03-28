@@ -38,7 +38,7 @@ def parse_arguments():
     parser.add_argument("--no_log", action="store_false", help="Flag to not log the run")
     parser.add_argument("--utility", type=str, default="fmeca", choices=["fmeca", "other", "other_smooth"],
                         help="Utility function to use.", )
-    parser.add_argument("--env", type=str, default="normal", choices=["normal", "simple", "difficult"],
+    parser.add_argument("--env", type=str, default="normal", choices=["normal", "simple", "difficult", "ark"],
                         help="Environment to use.", )
     parser.add_argument("--no_lr_decay", action="store_false", help="Flag to not decay the learning rate.")
     parser.add_argument("--save_eval_folder", type=str, default=None, help="Folder to save evaluation results.")
@@ -91,6 +91,10 @@ def main():
         env = gym.make("Maintenance-quay-wall-complex-v0")
         env = BayesianObservation(env)
         front_name = "modcmac_quay_wall_complex_"
+    elif args.env == "ark":
+        env = gym.make("Maintenance-quay-wall-v0")
+        env = BayesianObservation(env)
+        front_name = "modcmac_ark_"
     p_name = front_name + back_side_name
     if args.is_test:
         p_name = p_name + "_test"
