@@ -432,6 +432,7 @@ class MODCMACBase:
         reward_cost_array = np.zeros(episodes)
         reward_risk_array = np.zeros(episodes)
         reward_uti_array = np.zeros(episodes)
+
         for i in range(episodes):
             reward, _, _, _, scoring_table = self.evaluate()
 
@@ -442,7 +443,7 @@ class MODCMACBase:
             reward_risk_array[i] = total_prob_eval_curr
             reward_uti_array[i] = eval_cost_curr
 
-        return reward_cost_array, reward_risk_array, reward_uti_array
+        return reward_cost_array, reward_risk_array, reward_uti_array, scoring_table
 
     def do_eval_new_exp(self, episodes: int = 1000, gamma=1.0) -> Tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray,
     np.ndarray, np.ndarray, List[pd.DataFrame]]:
