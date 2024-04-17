@@ -33,6 +33,7 @@ def parse_arguments():
     parser.add_argument("--device", type=str, default="cpu", help="Device.", choices=["cpu", "cuda", "mps"])
     parser.add_argument("--save_folder", type=str, default="./models", help="Folder to save models.")
     parser.add_argument("--do_eval", action='store_true', help="Flag to do evaluation.")
+    parser.add_argument('--eval_steps', type=int, default=5, help='Number of evaluation steps to perform.')
     parser.add_argument("--path_pnet", type=str, default=None, help="Path to policy network.")
     parser.add_argument("--path_vnet", type=str, default=None, help="Path to value network.")
     parser.add_argument("--no_log", action="store_false", help="Flag to not log the run")
@@ -125,7 +126,7 @@ def main():
         agent.train(training_steps=args.num_steps)
     else:
         agent.load_model(args.path_pnet, args.path_vnet)
-        cost_array, risk_array, uti_array, scoring_table = agent.do_eval(5)
+        cost_array, risk_array, uti_array, scoring_table = agent.do_eval(args.eval_steps)
         print("Cost: ", np.mean(cost_array))
         print("Risk: ", np.mean(risk_array))
         print("Utility: ", np.mean(uti_array))

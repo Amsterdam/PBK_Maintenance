@@ -125,7 +125,7 @@ def generate_proportionally_weighted_states(n_components, start_states, probs, r
     return np.array(random.choices(start_states, weights=adjusted_weights, k=n_components))
 
 
-def weibull_interpolation(P, P_start, ndeterioration, lambda_=92, kappa=2):
+def weibull_interpolation(P, P_start, ndeterioration, lambda_=92, kappa=2.5):
     """
     Adjust the transition matrix over time using a Weibull distribution, where the probability
     of moving to a higher state increases, and the probability of staying in the same state decreases.
@@ -178,7 +178,6 @@ def weibull_interpolation(P, P_start, ndeterioration, lambda_=92, kappa=2):
 
         P[t] = P_copy
 
-    print(list(P[-1].round(3)))
     return P
 
 
